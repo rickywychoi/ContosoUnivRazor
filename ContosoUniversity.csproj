@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Instructors\NewFolder\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

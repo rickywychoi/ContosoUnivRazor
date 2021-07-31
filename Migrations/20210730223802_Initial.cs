@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ContosoUniversity.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,24 +98,24 @@ namespace ContosoUniversity.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CourseAssignment",
+                name: "CourseInstructor",
                 columns: table => new
                 {
-                    InstructorID = table.Column<int>(type: "int", nullable: false),
-                    CourseID = table.Column<int>(type: "int", nullable: false)
+                    CoursesCourseID = table.Column<int>(type: "int", nullable: false),
+                    InstructorsInstructorID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseAssignment", x => new { x.CourseID, x.InstructorID });
+                    table.PrimaryKey("PK_CourseInstructor", x => new { x.CoursesCourseID, x.InstructorsInstructorID });
                     table.ForeignKey(
-                        name: "FK_CourseAssignment_Course_CourseID",
-                        column: x => x.CourseID,
+                        name: "FK_CourseInstructor_Course_CoursesCourseID",
+                        column: x => x.CoursesCourseID,
                         principalTable: "Course",
                         principalColumn: "CourseID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CourseAssignment_Instructor_InstructorID",
-                        column: x => x.InstructorID,
+                        name: "FK_CourseInstructor_Instructor_InstructorsInstructorID",
+                        column: x => x.InstructorsInstructorID,
                         principalTable: "Instructor",
                         principalColumn: "InstructorID",
                         onDelete: ReferentialAction.Cascade);
@@ -154,9 +154,9 @@ namespace ContosoUniversity.Migrations
                 column: "DepartmentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseAssignment_InstructorID",
-                table: "CourseAssignment",
-                column: "InstructorID");
+                name: "IX_CourseInstructor_InstructorsInstructorID",
+                table: "CourseInstructor",
+                column: "InstructorsInstructorID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Department_InstructorID",
@@ -178,7 +178,7 @@ namespace ContosoUniversity.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CourseAssignment");
+                name: "CourseInstructor");
 
             migrationBuilder.DropTable(
                 name: "Enrollment");
