@@ -26,6 +26,10 @@ namespace ContosoUniversity.Models
         // If it were non-nullable, cascade delete is set by default
         // Nullable FK shows that the relationship between Instructor to Department is 0..1 to 1
         public int? InstructorID { get; set; }
+
+        [Timestamp]
+        public byte[] ConcurrencyToken { get; set; }
+
         public Instructor Administrator { get; set; }
         public ICollection<Course> Courses { get; set; }
     }
